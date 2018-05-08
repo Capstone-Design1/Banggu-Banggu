@@ -1,0 +1,82 @@
+<!doctype=html>
+<html>
+    <head>
+        <title>Filter</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+
+<body>
+    <header>
+    <h1>filter</h1>
+    <hr/>
+    <button id="reset" type="button" class="btn btn-default btn-sm">모두 지우기</button>
+    </header>
+    
+    <section>
+        <h2>Location</h2>
+        <hr/>
+        <form>
+            <!--NEED TO SET ACTION AND METHOD-->
+            <span>
+                <input type="checkbox" id="J" name="J"/><label for="J">J</label>&emsp;
+            </span>
+        
+            <span>
+            <input type="checkbox" id="K" name="K"/><label for="K">K</label>&emsp;
+            </span>
+            
+            <span>
+            <input type="checkbox" id="AS" name="AS"/><label for="AS">AS</label>&emsp;
+            </span>
+            
+            <span>
+            <input type="checkbox" id="GN"/><label for="GN" name="GN">GN</label>&emsp;  
+            </span>
+        </form>
+    </section>
+
+    <section>
+        <h2>Facilities</h2>
+        <hr/>
+        <form>
+            <!--NEED TO SET ACTION AND METHOD-->
+            강의실 크기 <input type="range" id="roomSize" name="roomSize" /><br/>
+            사용 인원 <input type="range" id="numPeople" name="numPeople"/><br/><br/>
+            
+            <div>
+            <span>
+            <input type="checkbox" id="projector" name="projector"/><label for="projector">프로젝터</label>&emsp; 
+            </span>
+            
+            <span>
+            <input type="checkbox" id="computer" name="computer"/><label for="computer">컴퓨터</label>&emsp; 
+            </span>
+            
+            <span>
+            <input type="checkbox" id="charger" name="charger"/><label for="charger">플러그</label>&emsp;
+            </span>
+            </div>
+            
+            <div>
+            <span>
+            <input type="checkbox" id="window" name="window"/><label for="window">창문</label>
+            </span>
+            
+            <span>
+            <input type="checkbox" id="sepTable" name="sepTable "/><label for="sepTable">분리형 책상</label>
+            </span>
+
+            <span>
+            <input type="checkbox" id="wBoard" name="wBoard"/><label for="wBoard">화이트보드</label>
+            </span>
+            </div>
+        </form>
+    </section>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+    </body>
+
+</html>
