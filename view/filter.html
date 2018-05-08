@@ -1,78 +1,153 @@
 <!doctype=html>
 <html>
     <head>
-        <title>Filter</title>
+        <title>Browse</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <style>
+            body{
+                padding-top : 100px;
+            }
+        </style>
     </head>
-
-<body>
-    <header>
-    <h1>filter</h1>
-    <hr/>
-    <button id="reset" type="button" class="btn btn-default btn-sm">모두 지우기</button>
-    </header>
     
-    <section>
-        <h2>Location</h2>
-        <hr/>
-        <form>
-            <!--NEED TO SET ACTION AND METHOD-->
-            <span>
-                <input type="checkbox" id="J" name="J"/><label for="J">J</label>&emsp;
-            </span>
+    <body>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">SogangSpace</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">홈</a>
+                    <a class="nav-item nav-link" href="#">현재 사용가능한 강의실 <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link disabled" href="#">-</a>
+                    <a class="nav-item nav-link disabled" href="#">추천 강의실</a>
+                    <a class="nav-item nav-link disabled" href="#">인기 강의실 순위</a>
+                    <a class="nav-item nav-link disabled" href="#"> </a>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="강의실 검색" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
         
-            <span>
-            <input type="checkbox" id="K" name="K"/><label for="K">K</label>&emsp;
-            </span>
-            
-            <span>
-            <input type="checkbox" id="AS" name="AS"/><label for="AS">AS</label>&emsp;
-            </span>
-            
-            <span>
-            <input type="checkbox" id="GN"/><label for="GN" name="GN">GN</label>&emsp;  
-            </span>
-        </form>
-    </section>
+        <div class="container">
+            <img src="image/glyphicons/glyphicons-208-remove.png">
 
-    <section>
-        <h2>Facilities</h2>
-        <hr/>
-        <form>
-            <!--NEED TO SET ACTION AND METHOD-->
-            강의실 크기 <input type="range" id="roomSize" name="roomSize" /><br/>
-            사용 인원 <input type="range" id="numPeople" name="numPeople"/><br/><br/>
-            
-            <div>
-            <span>
-            <input type="checkbox" id="projector" name="projector"/><label for="projector">프로젝터</label>&emsp; 
-            </span>
-            
-            <span>
-            <input type="checkbox" id="computer" name="computer"/><label for="computer">컴퓨터</label>&emsp; 
-            </span>
-            
-            <span>
-            <input type="checkbox" id="charger" name="charger"/><label for="charger">플러그</label>&emsp;
-            </span>
-            </div>
-            
-            <div>
-            <span>
-            <input type="checkbox" id="window" name="window"/><label for="window">창문</label>
-            </span>
-            
-            <span>
-            <input type="checkbox" id="sepTable" name="sepTable "/><label for="sepTable">분리형 책상</label>
-            </span>
+            <header>                
+                <h1 class="text-center">filter</h1>
+                <hr/>            
+                <div class="row">
+                    <div class="col-sm"></div>
+                    <div class="col-sm"></div>
+                    <div class="col-sm" class="text-right">
+                    <form class="form-inline">
+                        <button class="btn btn-default" type="reset">모두 지우기</button>
+                    </form>
+                    </div>
+                </div>
+            </header>
 
-            <span>
-            <input type="checkbox" id="wBoard" name="wBoard"/><label for="wBoard">화이트보드</label>
-            </span>
-            </div>
-        </form>
-    </section>
+            <section>
+                <h2>Location</h2>
+                <hr/>
+                <form>
+                    <!--NEED TO SET ACTION AND METHOD-->
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="J">
+                              <label class="custom-control-label" for="J">J</label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="K">
+                              <label class="custom-control-label" for="K">K</label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="AS">
+                              <label class="custom-control-label" for="AS">AS</label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="GN">
+                              <label class="custom-control-label" for="GN">GN</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            
+            <br/><br/>
+
+            <section>
+                <h2>Facilities</h2>
+                <hr/>
+                <form>
+                    <!--NEED TO SET ACTION AND METHOD-->
+                    <label for="roomSize">강의실 크기</label>
+                    <input type="range" class="custom-range" min="0" max="2" step="1" id="roomSize"><br/><br/><br/>
+                    
+                    <label for="numPeople">사용인원</label>
+                    <input type="range" class="custom-range" min="10" max="100" step="20" id="numPeople"><br/><br/><br/>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="projector">
+                                <label class="custom-control-label" for="projector">프로젝터</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="computer">
+                                <label class="custom-control-label" for="computer">컴퓨터</label>
+                            </div>
+                        </div> 
+                        
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="charger">
+                                <label class="custom-control-label" for="charger">플러그</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="window">
+                                <label class="custom-control-label" for="window">창문</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="sepTable">
+                                <label class="custom-control-label" for="sepTable">분리형 책상</label>
+                            </div>
+                        </div> 
+                        
+                        <div class="col-sm">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="wBoard">
+                                <label class="custom-control-label" for="wBoard">화이트보드</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
     
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         
