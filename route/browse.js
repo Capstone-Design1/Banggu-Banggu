@@ -1,12 +1,14 @@
 module.exports = function(app){//함수로 만들어 객체 app을 전달받음
-    var express = require('express');
-    var router = express.Router();
-    router.get('/menu', function(req, res){
-        res.sendFile("../view/menu.html");
+    const express = require('express');
+    const router = express.Router();
+    const path = require('path');
+
+    router.get('/', function(req, res){
+        res.sendFile(path.join(__dirname + '/../view/browse.html'));
     });
 
-    router.get('/r2', function(req, res){
-        res.send('Hello /p1/r2');       
+    router.get('/detail', function(req, res){
+        res.sendFile(path.join(__dirname + '/../view/detail.html'));
     });
     return router;  //라우터를 리턴
 };
