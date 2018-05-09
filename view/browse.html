@@ -14,7 +14,7 @@
 
     <body>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">SogangSpace</a>
+            <a class="navbar-brand" href="#">방귀 뀐 강의실을 피해라!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,39 +36,148 @@
         
         <header>
             <div class="container">
-              <div class="row">
-                <div class="col-sm">
-                    <form class="form-inline">
-                        <button class="btn btn" type="submit">필터</button>
-                    </form>
-                </div>
-    
-                <div class="col-sm">
-                    <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">정렬 기준</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">필터</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">필터</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <section>   <h4>위치</h4><hr/>
+                                    <form>
+                                    <!--NEED TO SET ACTION AND METHOD-->
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="J">
+                                              <label class="custom-control-label" for="J">J</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm">
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="K">
+                                              <label class="custom-control-label" for="K">K</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm">
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="AS">
+                                              <label class="custom-control-label" for="AS">AS</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm">
+                                            <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="GN">
+                                              <label class="custom-control-label" for="GN">GN</label>
+                                            </div>
+                                        </div>
+                                    </div> <br/><br/>
+                                        </form></section>                    
+                                    <section> <h4>시설</h4>
+                                        <hr/>
+                                        <form>
+                                            <!--NEED TO SET ACTION AND METHOD-->
+                                            <label for="roomSize">강의실 크기</label>
+                                            <input type="range" class="custom-range" min="0" max="2" step="1" id="roomSize"><br/><br/><br/>
+
+                                            <label for="numPeople">사용인원</label>
+                                            <input type="range" class="custom-range" min="10" max="100" step="20" id="numPeople"><br/><br/><br/>
+
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="projector">
+                                                        <label class="custom-control-label" for="projector">프로젝터</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="computer">
+                                                        <label class="custom-control-label" for="computer">컴퓨터</label>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="charger">
+                                                        <label class="custom-control-label" for="charger">플러그</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="window">
+                                                        <label class="custom-control-label" for="window">창문</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="sepTable">
+                                                        <label class="custom-control-label" for="sepTable">분리형 책상</label>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="wBoard">
+                                                        <label class="custom-control-label" for="wBoard">화이트보드</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form> </section>
+                                </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                                <button type="button" class="btn btn-primary">적용하기</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>        
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01">
-                        <option selected>좋은 환경 순...</option>
-                        <option value="1">인기 순</option>
-                        <option value="2">거리 순</option>
-                        <option value="3">사용 가능 시간 순</option>
-                    </select>
-                    </div>                
-                  </div>             
+                    <div class="col-sm">
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">정렬 기준</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>좋은 환경 순...</option>
+                            <option value="1">인기 순</option>
+                            <option value="2">거리 순</option>
+                            <option value="3">사용 가능 시간 순</option>
+                        </select>
+                        </div>                
+                    </div>             
                 </div><hr/>
             </div>
         </header>
         
         <section>
             <div class="container">
-                <div class="card mb-3">
+
+                <div class="card mb-3"><a href="detail.html">
                     <img class="card-img-top" src="image/room1.jpg" width="100px180" alt="Card image cap">
                     <div class="card-body">
                         <h1 class="card-title">K503 <span class="badge badge-primary">아주 좋아요!</span></h1>
                         <p class="card-text">환경점수: 4.3/5</p>
                         <p class="card-text"><small class="text-muted">16:23 까지 사용 가능 (1:23 남음)</small></p>
-                    </div>
+                    </div></a>
                 </div>
 
                 <div class="card mb-3">
