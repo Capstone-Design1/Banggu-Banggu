@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <h1 class="card-title">K503 <span class="badge badge-primary">아주 좋아요!</span></h1>
                         <p class="card-text">환경점수: 4.3/5</p>
-                        <p class="card-text"><small class="text-muted">16:23 까지 사용 가능 (1:23 남음)</small></p>
+                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     16:23 까지 사용 가능 (1:23 남음)</p>
                     </div>
                 </div>
             
@@ -60,10 +60,8 @@
                       <td class="text-right">20</td>
                     </tr>
                 </thead>
-            </table>
+            </table><br/><br/>
 
-            <p>16:45까지 사용 가능 (1:50 남음)</p>
-                </br>
             <section>
                 <h2>개요</h2>
                 <table class="table table-borderless">
@@ -84,19 +82,19 @@
                 </table>
 
                 <div class="row">
-                    <div class="col-sm"></div>
-                    <div class="col-sm">                    
+                    <div class="col-sm"></div>              
+                    <div class="col-sm" class="text-centered">                  
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#floorPlan">
                           평면도 보기
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="floorPlan" tabindex="-1" role="dialog" aria-labelledby="floorPlanLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">평면도</h5>
+                                <h5 class="modal-title" id="floorPlanLabel">평면도</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -122,7 +120,7 @@
                 <table class="table table-borderless" width="100px">
                     <thead>
                         <tr>
-                            <td><img src="image/glyphicons/glyphicons-730-temperature.png" align="center"> </td>
+                            <td><img src="image/glyphicons/glyphicons-22-snowflake.png" align="center"> </td>
                             <td>에어컨</td>
                             <td><img src="image/glyphicons/glyphicons-564-person-wheelchair.png" align="center"></td>
                             <td>접근성 우수</td>
@@ -135,17 +133,65 @@
                         </tr>
                     </thead>
                 </table>
-
+                
                 <div class="row">
                     <div class="col-sm"></div>
-                    <div class="col-sm">                    
+                    <div class="col-sm" class="text-centered">                  
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
-                          더보기
-                        </button>
+                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#moreFacilities">더보기</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="moreFacilities" tabindex="-1" role="dialog" aria-labelledby="moreFacilitiesLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="moreFacilitiesLabel">시설</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="card mb-3">
+                                    <table class="table table-borderless" width="100px">
+                                        <thead>
+                                            <tr>
+                                                <td><img src="image/glyphicons/glyphicons-22-snowflake.png" align="center"> </td>
+                                                <td>에어컨</td>
+                                                <td><img src="image/glyphicons/glyphicons-564-person-wheelchair.png" align="center"></td>
+                                                <td>접근성 우수</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="image/glyphicons/glyphicons-266-electrical-plug.png" align="center"></td>
+                                                <td>플러그</td>
+                                                <td><img src="image/glyphicons/glyphicons-74-wifi.png" align="center"></td>
+                                                <td>와이파이</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="image/glyphicons/glyphicons-232-sun.png" align="center"> </td>
+                                                <td>창문</td>
+                                                <td><img src="image/glyphicons/glyphicons-214-arrow-up.png" align="center"></td>
+                                                <td>엘리베이터</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="image/glyphicons/glyphicons-87-display.png" align="center"></td>
+                                                <td>컴퓨터</td>
+                                                <td><img src="image/glyphicons/glyphicons-170-record.png" align="center"></td>
+                                                <td>프로젝터</td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                     <div class="col-sm"></div>
                 </div>
+             
             </section>
             
             <section>
