@@ -5,8 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.js" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <script type="text/javascript" src="/js/bootstrap.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <!--
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></script>-->
         <style>
             body{
                 padding-top : 100px;
@@ -16,17 +19,17 @@
 
     <body>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">방귀 뀐 강의실을 피해라!</a>
+            <a class="navbar-brand" href="#">방구방구</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">홈</a>
-                    <a class="nav-item nav-link" href="#">현재 사용가능한 강의실 <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="/home.html">홈</a>
+                    <a class="nav-item nav-link" href="/browse.html">현재 사용가능한 강의실 <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link disabled" href="#">-</a>
-                    <a class="nav-item nav-link disabled" href="#">추천 강의실</a>
-                    <a class="nav-item nav-link disabled" href="#">인기 강의실 순위</a>
+                    <a class="nav-item nav-link disabled" href="/suggestion.html">추천 강의실</a>
+                    <a class="nav-item nav-link disabled" href="/ranking.html">인기 강의실 순위</a>
                     <a class="nav-item nav-link disabled" href="#"> </a>
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" type="search" placeholder="강의실 검색" aria-label="Search">
@@ -59,7 +62,7 @@
                                     <section>   <h4>위치</h4><hr/>
                                     <form>
                                     <!--NEED TO SET ACTION AND METHOD-->
-                                    <div class="row">
+                                    <div class="row" id ="loca">
                                         <div class="col-sm">
                                             <div class="custom-control custom-checkbox">
                                               <input type="checkbox" class="custom-control-input" id="J">
@@ -147,7 +150,7 @@
                                 </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                                <button type="button" class="btn btn-primary">적용하기</button>
+                                <button type="button" class="btn btn-primary" onclick="ifChecked()">적용하기</button>
                               </div>
                             </div>
                           </div>
@@ -158,8 +161,8 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">정렬 기준</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>좋은 환경 순...</option>
+                        <select class="custom-select" id="sortBy" onchange="sort()">
+                            <option selected value="0">좋은 환경 순...</option>
                             <option value="1">인기 순</option>
                             <option value="2">거리 순</option>
                             <option value="3">사용 가능 시간 순</option>
@@ -171,12 +174,11 @@
         </header>
         
         <section>
-            <div class="container">
-
-                <div class="card mb-3"><a href="/browse/detail">
+            <div class="container" id="rooms">
+                <div class="card mb-3"><a href="/detail.html">
                     <img class="card-img-top" src="/image/room1.jpg" width="100px180" alt="Card image cap">
                     <div class="card-body">
-                        <h1 class="card-title">K503 <span class="badge badge-primary">아주 좋아요!</span></h1>
+                        <h1 class="card-title">K501 <span class="badge badge-primary">아주 좋아요!</span></h1>
                         <p class="card-text">환경점수: 4.3/5</p>
                         <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     16:23 까지 사용 가능 (1:23 남음)</p>
                     </div></a>
@@ -187,7 +189,7 @@
                     <div class="card-body">
                         <h1 class="card-title">J104 <span class="badge badge-success">좋아요!</span></h1>
                         <p class="card-text">환경점수: 3.8/5</p>
-                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     15:18 까지 사용 가능 (0:18 남음)</small></p>
+                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     15:18 까지 사용 가능 (0:18 남음)</p>
                     </div>
                 </div>
 
@@ -196,7 +198,7 @@
                     <div class="card-body">
                         <h1 class="card-title">AS403 <span class="badge badge-warning">그저그래요!</span></h1>
                         <p class="card-text">환경점수: 2.1/5</p>
-                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     19:55 까지 사용 가능 (4:55 남음)</small></p>
+                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     19:55 까지 사용 가능 (4:55 남음)</p>
                     </div>
                 </div>
 
@@ -205,13 +207,14 @@
                     <div class="card-body">
                         <h1 class="card-title">GN201 <span class="badge badge-danger">방귀냄새!</span></h1>
                         <p class="card-text">환경점수: 1.5/5</p>
-                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     16:35 까지 사용 가능 (1:35 남음)</small></p>
+                        <p class="card-text"><img src="image/glyphicons/glyphicons-55-clock.png"/>     16:35 까지 사용 가능 (1:35 남음)</p>
                     </div>
                 </div>
             </div>
         </section>       
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--        <script src="browse.js"></script>
+        <script src="browse_jq.js"></script>-->
     </body>
 
 </html>
