@@ -4,15 +4,15 @@ const path = require("path");
 
 const port = 8000;
 
-app.use(express.static(__dirname + '/view'));
-app.get(['/', '/home'], (req, res) => res.sendFile(path.join(__dirname + '/view/home.html')));
+app.use(express.static(__dirname + '/view/banggu'));
+// app.get(['/', '/home'], (req, res) => res.sendFile(path.join(__dirname + '/view/bangguhome.html')));
 
 
 // set routers
 // base path: "./route"
 // Result Path : base path + routeName + ".js"
 // example : "./route" + "/home" + ".js" => ./route/home.js
-const routes = ["/browse"];
+const routes = ["/banggu", "/banggu/browse"];
 for (var idx in routes) {
     var router = require('./route' + routes[idx] + '.js')(app);
 
