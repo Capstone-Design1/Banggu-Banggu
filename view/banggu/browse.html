@@ -9,6 +9,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <style>
+
             body{
                 padding-top : 70px;
             }
@@ -25,14 +26,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/banggu/home.html">방구방구</a>
+                  <a class="navbar-brand" href="/banggu/home">방구방구</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="/banggu/home.html">홈</a></li>
-                    <li><a href="/banggu/browse.html">현재 사용가능한 강의실 <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="/banggu/home">홈</a></li>
+                    <li><a href="/banggu/browse">현재 사용가능한 강의실 <span class="sr-only">(current)</span></a></li>
                     <li>&nbsp;</li>
                     <li><a href="#">추천 강의실</a></li>
                     <li><a href="#">강의실 인기 순위</a></li>
@@ -157,7 +158,6 @@
     </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
-
 const rooms = [
 {
     name: 'K501',
@@ -190,7 +190,7 @@ var browseRoomComponent = {
             <h1>
                 {{room.name}}
                 <span v-if="room.score >= 4" class="badge alert-info">
-                    아주 좋아요!</span> 
+                    아주 좋아요!</span>
                 <span v-else-if="room.score >= 3" class="badge alert-success">
                     좋아요!</span>
                 <span v-else-if="room.score >= 2" class="badge alert-warning">
