@@ -9,9 +9,20 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <style>
-
             body{
                 padding-top : 70px;
+            }
+            div.room-very-good {
+                color: rgb(52, 112, 141);
+            }
+            div.room-good {
+                color: rgb(62, 117, 63);
+            }
+            div.room-soso {
+                color: rgb(137, 108, 63);
+            }
+            div.room-bad {
+                color: rgb(119, 119, 119);
             }
         </style>
     </head>
@@ -184,21 +195,37 @@ const rooms = [
 var browseRoomComponent = {
     template: `
     <div class="w-100 p-3">
-    <div class="panel panel-default"><a :href="'/browse' + room.name">
+    <div class="panel panel-default"><a :href="'/browse/' + room.name">
         <div class="panel-body">
         <img :src="room.img" alt="room1" class="img-responsive">
-            <h1>
-                {{room.name}}
-                <span v-if="room.score >= 4" class="badge alert-info">
+            <div class="room-very-good" v-if="room.score >= 4">
+                <h1> {{room.name}}
+                <span class="badge alert-info">
                     아주 좋아요!</span>
-                <span v-else-if="room.score >= 3" class="badge alert-success">
+                </h1>
+                <h4>환경점수: {{room.score}}/5</h4>
+            </div>
+            <div class="room-good" v-else-if="room.score >= 3" style="color-good">
+                <h1> {{room.name}}
+                <span class="badge alert-success">
                     좋아요!</span>
-                <span v-else-if="room.score >= 2" class="badge alert-warning">
+                </h1>
+                <h4>환경점수: {{room.score}}/5</h4>
+            </div>
+            <div class="room-soso" v-else-if="room.score >= 2">
+                <h1> {{room.name}}
+                <span class="badge alert-warning">
                     그저 그래요!</span>
-                <span v-else class="badge alert-dange">
+                </h1>
+                <h4>환경점수: {{room.score}}/5</h4>
+            </div>
+            <div class="room-bad" v-else> 
+                <h1> {{room.name}}
+                <span class="badge alert-dange">
                     방귀냄새!</span>
-            </h1>
-            <h4>환경점수: {{room.score}}/5</h4>
+                </h1>
+                <h4>환경점수: {{room.score}}/5</h4>
+            </div>
 <!--            <p><img src="/image/glyphicons/glyphicons-55-clock.png"/>
 16:23 까지 사용 가능 (1:23 남음)</p> -->
         </div>
