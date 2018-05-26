@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script> <!-- vue js -->
+
         <style>
             body{
                 padding-top : 70px;
@@ -150,46 +150,74 @@
 
         <section>
             <div class="container" id="rooms">
-                <div class="w-100 p-3">
-                <div class="panel panel-default"><a href="detail.html">
-                  <div class="panel-body">
-                    <img src="/image/room1.jpg" alt="room1" class="img-responsive">
-                        <h1>K501 <span class="badge alert-info">아주 좋아요!</span> </h1>
-                        <h4>환경점수: 4.3/5</h4>
-                        <p><img src="/image/glyphicons/glyphicons-55-clock.png"/>     16:23 까지 사용 가능 (1:23 남음)</p>
-                  </div>
-                </a></div></div>         
-                
-                <div class="w-100 p-3">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <img src="/image/room2.jpg" alt="room2" class="img-responsive">
-                        <h1>J104 <span class="badge alert-success">아주 좋아요!</span> </h1>
-                        <h4>환경점수: 3.8/5</h4>
-                        <p><img src="/image/glyphicons/glyphicons-55-clock.png"/>     15:18 까지 사용 가능 (0:18 남음)</p>
-                  </div> 
-                </div></div>              
-
-                <div class="w-100 p-3">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <img src="/image/room3.jpg" alt="room3" class="img-responsive">
-                        <h1>AS403 <span class="badge alert-warning">그저그래요!</span> </h1>
-                        <h4>환경점수: 2.1/5</h4>
-                        <p class="card-text"><img src="/image/glyphicons/glyphicons-55-clock.png"/>     19:55 까지 사용 가능 (4:55 남음)</p>
-                  </div>
-                </div></div>
-
-                <div class="w-100 p-3">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <img src="/image/room4.jpg" alt="room4" class="img-responsive">
-                        <h1>GN201 <span class="badge alert-danger">방귀냄새!</span> </h1>
-                        <h4>환경점수: 1.5/5</h4>
-                        <p class="card-text"><img src="/image/glyphicons/glyphicons-55-clock.png"/>     16:35 까지 사용 가능 (1:35 남음)</p>
-                  </div>
-                </div></div> 
-            </div>
+                <div id="browseRoom">
+                    <browse-room-component v-for="room in rooms" :room="room"
+                                           :key="room.name" />
+                </div>
         </section>
     </body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+
+const rooms = [
+{
+    name: 'K501',
+    score: '4.3',
+    img: '/image/room1.jpg'
+},
+{
+    name: 'J104',
+    score: '3.8',
+    img: '/image/room2.jpg'
+},
+{
+    name: 'AS403',
+    score: '2.1',
+    img: '/image/room3.jpg'
+},
+{
+    name: 'GN201',
+    score: '1.5',
+    img: '/image/room4.jpg'
+}
+];
+
+var browseRoomComponent = {
+    template: `
+    <div class="w-100 p-3">
+    <div class="panel panel-default"><a :href="'/browse' + room.name">
+        <div class="panel-body">
+        <img :src="room.img" alt="room1" class="img-responsive">
+            <h1>
+                {{room.name}}
+                <span v-if="room.score >= 4" class="badge alert-info">
+                    아주 좋아요!</span> 
+                <span v-else-if="room.score >= 3" class="badge alert-success">
+                    좋아요!</span>
+                <span v-else-if="room.score >= 2" class="badge alert-warning">
+                    그저 그래요!</span>
+                <span v-else class="badge alert-dange">
+                    방귀냄새!</span>
+            </h1>
+            <h4>환경점수: {{room.score}}/5</h4>
+<!--            <p><img src="/image/glyphicons/glyphicons-55-clock.png"/>
+16:23 까지 사용 가능 (1:23 남음)</p> -->
+        </div>
+    </a></div></div>
+    `,
+    props: {
+        room: Object
+    }
+}
+
+new Vue({
+    el: '#browseRoom',
+    components: {
+        'browse-room-component': browseRoomComponent
+    },
+    data: {
+        rooms
+    }
+})
+</script>
 </html>
