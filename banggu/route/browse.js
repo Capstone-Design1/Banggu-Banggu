@@ -73,7 +73,9 @@ module.exports = function(app){//함수로 만들어 객체 app을 전달받음
     router.get('/:roomName', function(req, response) {
         var roomName = req.params.roomName;
         console.log(roomName);
-        client.query("SELECT * FROM facility INNER JOIN  estimation ON facility.name = estimation.room_name WHERE facility.name = '"+ roomName +"'")
+        client.query("SELECT * FROM facility INNER JOIN environment ON (facility.name = environment.room_name)"
+                + " INNER JOIN  estimation ON (facility.name = estimation.room_name) WHERE facility.name = '"
+                + roomName + "';")
             .then(res => {
                 var info = res.rows[0];
                 info['roomName'] = roomName;
