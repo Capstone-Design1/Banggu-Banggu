@@ -8,6 +8,9 @@ app.use(express.static(__dirname + '/view'));
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname + '/view/home.html')));
 
+app.get('/about', (req, res) => res.sendFile(path.join(__dirname + '/view/about.html')));
+
+
 // set routers
 // base path: "./route"
 // Result Path : base path + routeName + ".js"
