@@ -1,12 +1,4 @@
-/*
-- room_env={
-    discomfort: 0~5 index
-    co2: 0~5 index
-    pm: 0~5 index
-}
-
-- img 수정해야함
-*/
+/*NOTE: NO NEED TO SCALE SCORE IN RANGE (0, 5)*/
 
 var listEnvironmentComponent = {
     data () {
@@ -22,16 +14,16 @@ var listEnvironmentComponent = {
                     </tr>
                     <tr>
                         <td align="center"><span>
-                            <div class="room-very-good" v-if="room_env.discomfort >= 4">
-                                <img src="/image/glyphicons/verygood.png"/><br/>아주 좋아요!
+                            <div class="room-very-good" v-if="room_env.discomfort < 68">
+                                <img src="/image/glyphicons/verygood.png"/><br/>최고예요!
                             </div>
-                            <div class="room-good" v-else-if="room_env.discomfort >= 3">
+                            <div class="room-good" v-else-if="room_env.discomfort < 75">
                                 <img src="/image/glyphicons/good.png"/><br/>좋아요!
                             </div>
-                            <div class="room-soso" v-else-if="room_env.discomfort >= 2">
+                            <div class="room-soso" v-else-if="room_env.discomfort < 80">
                                 <img src="/image/glyphicons/soso.png"/><br/>그저그래요!
                             </div>
-                            <div class="room-bad" v-else-if="room_env.discomfort >= 1">
+                            <div class="room-bad" v-else-if="room_env.discomfort < 85">
                                 <img src="/image/glyphicons/bad.png"/><br/>별로예요!
                             </div>
                             <div class="room-very-bad" v-else>
@@ -40,16 +32,16 @@ var listEnvironmentComponent = {
                         </span></td>
 
                         <td align="center"><span>
-                            <div class="room-very-good" v-if="room_env.co2 >= 4">
-                                <img src="/image/glyphicons/verygood.png"/><br/>아주 좋아요!
+                            <div class="room-very-good" v-if="room_env.co2 <= 450">
+                                <img src="/image/glyphicons/verygood.png"/><br/>최고예요!
                             </div>
-                            <div class="room-good" v-else-if="room_env.co2 >= 3">
+                            <div class="room-good" v-else-if="room_env.co2 <= 700">
                                 <img src="/image/glyphicons/good.png"/><br/>좋아요!
                             </div>
-                            <div class="room-soso" v-else-if="room_env.co2 >= 2">
+                            <div class="room-soso" v-else-if="room_env.co2 <= 1000">
                                 <img src="/image/glyphicons/soso.png"/><br/>그저그래요!
                             </div>
-                            <div class="room-bad" v-else-if="room_env.co2 >= 1">
+                            <div class="room-bad" v-else-if="room_env.co2 <= 2000">
                                 <img src="/image/glyphicons/bad.png"/><br/>별로예요!
                             </div>
                             <div class="room-very-bad" v-else>
@@ -58,16 +50,16 @@ var listEnvironmentComponent = {
                         </span></td>
 
                         <td align="center"><span>
-                            <div class="room-very-good" v-if="room_env.dust >= 4">
-                                <img src="/image/glyphicons/verygood.png"/><br/>아주 좋아요!
+                            <div class="room-very-good" v-if="room_env.dust <= 30">
+                                <img src="/image/glyphicons/verygood.png"/><br/>최고예요!
                             </div>
-                            <div class="room-good" v-else-if="room_env.dust >= 3">
+                            <div class="room-good" v-else-if="room_env.dust <= 50">
                                 <img src="/image/glyphicons/good.png"/><br/>좋아요!
                             </div>
-                            <div class="room-soso" v-else-if="room_env.dust >= 2">
+                            <div class="room-soso" v-else-if="room_env.dust <= 100">
                                 <img src="/image/glyphicons/soso.png"/><br/>그저그래요!
                             </div>
-                            <div class="room-bad" v-else-if="room_env.dust >= 1">
+                            <div class="room-bad" v-else-if="room_env.dust <= 150">
                                 <img src="/image/glyphicons/bad.png"/><br/>별로예요!
                             </div>
                             <div class="room-very-bad" v-else>
