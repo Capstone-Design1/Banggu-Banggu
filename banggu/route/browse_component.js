@@ -25,9 +25,16 @@ var browseRoomComponent = {
                 </h1>
                 <h4>환경점수: {{room.score}}/5</h4>
             </div>
-            <div class="room-bad" v-else> 
+            <div class="room-bad" v-else-if="room.score >= 1">
                 <h1> {{room.name}}
-                <span class="badge alert-dange">
+                <span class="badge alert-warning">
+                    별로예요!</span>
+                </h1>
+                <h4>환경점수: {{room.score}}/5</h4>
+            </div>
+            <div class="room-very-bad" v-else> 
+                <h1> {{room.name}}
+                <span class="badge alert-dark">
                     방귀냄새!</span>
                 </h1>
                 <h4>환경점수: {{room.score}}/5</h4>

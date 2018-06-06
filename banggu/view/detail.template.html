@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
         <style>
             body{
                 padding-top : 70px;
@@ -20,7 +22,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -29,23 +31,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/">방구방구</a>
+                  <a class="navbar-brand" href="/"><img src="/view/image/logo.png" width="30"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: #FFBD4A">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">홈 </a></li>
-                    <li><a href="/browse">현재 사용가능한 강의실 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">추천 강의실</a></li>
-                    <li><a href="#">강의실 인기 순위</a></li>
+                      <li><a href="/"><font color="white">홈</font></a></li>
+                      <li><a href="/browse"><font color="#485E6B">현재 사용가능한 강의실</font><span class="sr-only">(current)</span></a></li>
+                      <li><a href="#"><font color="white">추천 강의실</font></a></li>
+                      <li><a href="#"><font color="white">강의실 인기 순위</font></a></li>
                   </ul>
-                  <form class="navbar-form navbar-right">
+<!--                  <form class="navbar-form navbar-right">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-default">검색</button>
-                    </form>
+                    </form>-->
                 </div><!-- /.navbar-collapse -->
             </div>
         </nav>   
@@ -56,9 +58,15 @@
                     <div class="panel panel-default">
                       <div class="panel-body">
                           <img :src="'/image/' + floor_plan" alt="room1" class="img-responsive">
-                        <h1> {{roomName}} <span class="badge alert-info">아주 좋아요!</span> </h1>
-                        <h4>환경점수: {{score}}/5</h4>
-                            <p><img src="/image/glyphicons/glyphicons-55-clock.png"/>     16:23 까지 사용 가능 (1:23 남음)</p>
+                          <h1 align="center"> {{roomName}}</h1>
+                          <h4 align="center">{{score}} / 5
+                              <div class="badge alert-info" v-if="room.score >= 4">아주 좋아요!</div>
+                              <div class="badge alert-success" v-else-if="room.score >= 3"> 좋아요!</div>
+                              <div class="badge alert-warning" v-else-if="room.score >= 2">그저그래요!</div>
+                              <div class="badge alert-danger" v-else-if="room.score >= 1">별로예요!</div>         
+                              <div class="badge alert-dark" v-else>방귀냄새!</div><br/>
+                          </h4>                  
+                          <li-environment-component :room_env="room_env"/>
                       </div>
                     </div>
                 </div>
@@ -69,32 +77,32 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <td><span style="font-weight:bold">온도</span></td>
+                        <td align="center"><span style="font-weight:bold">온도</span></td>
                         <td align="right">{{temp}}</td>
                         <td>   </td>
-                        <td><span style="font-weight:bold">습도</span></td>
+                        <td align="center"><span style="font-weight:bold">습도</span></td>
                         <td align="right">{{humidity}}%</td>
                       </tr>
                       <tr>
-                        <td><span style="font-weight:bold">CO2</span></td>
+                        <td align="center"><span style="font-weight:bold">CO2</span></td>
                         <td align="right">{{co2}}</td>
                         <td>   </td>
-                        <td><span style="font-weight:bold">미세먼지</span></td>
+                        <td align="center"><span style="font-weight:bold">미세먼지</span></td>
                         <td align="right">{{dust}}</td>
                       </tr>
                     </thead>
                   </table>
                 </table>
-            </section>
+            </section><br/>
             
             <section>
-                <h2>개요</h2>
+                <h3><span style="font-weight:bold">개요</span></h3>
                     <table class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <td><span style="font-weight: bold">면적</span></td>
-                                    <td align="right">{{area}}</td>
+                                    <td><span style="font-weight: bold">위치</span></td>
+                                    <td align="right">{{building}}</td>
                                 </tr>
 
                                 <tr>
@@ -140,10 +148,10 @@
                         </div>
                         <div class="col-xs-4"></div>
                     </div>
-            </section>
+            </section><br/>
 
             <section>
-                <h2>시설</h2>
+                <h3><span style="font-weight:bold">시설</span></h3>
                 <li-facility-component :facility="facilities" :img="img"
                                     :fac_name="fac_name" max_lines=2 />
 
@@ -177,31 +185,39 @@
                     </div>
                     <div class="col-xs-4"></div>
                 </div>
-            </section>
+            </section><br/>
             
             <section>
-                <h2>활용방법</h2>
-                <table class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td>수업/워크숍</td>
-                            </tr>
-                            <tr>
-                                <td>발표</td>
-                            </tr>
-                            <tr>
-                                <td>조모임</td>
-                            </tr>
-                        </thead>
-                    </table>
-                </table>
-            </section>
+                <h3><span style="font-weight:bold">위치</span></h3>
+                <!-건물에 따라 좌표 수정해야 함->
+                
+                <div id="map" style="width:100%;height:350px;"></div>
+                
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4b9fca00366c3da03c603f83660b5a66"></script>
+                <script>
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                    mapOption = { 
+                        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                        level: 3 // 지도의 확대 레벨
+                    };
 
-            <section>
-                <h2>위치</h2>
-                <img src="/image/mapDummy.jpg" alt="mapDummy" class="img-responsive"><br/>
-                <p>약 도보 5분 거리, 계단 이용</p>
+                var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                // 마커가 표시될 위치입니다 
+                var markerPosition  = new daum.maps.LatLng(33.450701, 126.570667); 
+
+                // 마커를 생성합니다
+                var marker = new daum.maps.Marker({
+                    position: markerPosition
+                });
+
+                // 마커가 지도 위에 표시되도록 설정합니다
+                marker.setMap(map);
+
+                // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+                // marker.setMap(null);    
+                </script>
+            
             </section><br/><br/>
             
         </div>
