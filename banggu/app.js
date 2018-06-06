@@ -6,13 +6,13 @@ const port = 8000;
 
 app.use(express.static(__dirname + '/view'));
 
-
+app.get('/', (req, res) => res.sendFile(path.join(__dirname + '/view/home.html')));
 
 // set routers
 // base path: "./route"
 // Result Path : base path + routeName + ".js"
 // example : "./route" + "/home" + ".js" => ./route/home.js
-const routes = ["/browse"];
+const routes = ["/api", "/browse"];
 for (var idx in routes) {
     var router = require('./route' + routes[idx] + '.js')(app);
 

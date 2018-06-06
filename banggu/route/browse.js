@@ -1,11 +1,10 @@
-module.exports = function(app){//함수로 만들어 객체 app을 전달받음
+module.exports = function(app) { //함수로 만들어 객체 app을 전달받음
     const express = require('express');
     const router = express.Router();
     const path = require('path');
     const pg = require('pg');
 
     const fs = require('fs');
-    const bangguPath = '/../view/';
     const Vue = require('vue');
 
     const renderer_one = require('vue-server-renderer').createRenderer();
@@ -18,14 +17,14 @@ module.exports = function(app){//함수로 만들어 객체 app을 전달받음
     const browse_component = require('./browse_component.js');
     const list_facilities_component = require('./detail_component.js');
 
-    /* postgres DB Setting */
-    const pool = new pg.Pool({
-        user: 'admin',
-        host: '127.0.0.1',
-        database: 'bangdb',
-        password: '123123',
-        port: '5432'
-    });
+    /* postgres DB Setting *//*
+                                const pool = new pg.Pool({
+                                user: 'admin',
+                                host: '127.0.0.1',
+                                database: 'bangdb',
+                                password: '123123',
+                                port: '5432'
+                                });*/
     const client = new pg.Client({
         user: 'admin',
         host: '127.0.0.1',
@@ -41,7 +40,8 @@ module.exports = function(app){//함수로 만들어 객체 app을 전달받음
         }
     });
     router.get('/', function (req, response) {
-        client.query("SELECT name, score, floor_plan FROM facility INNER JOIN  estimation ON facility.name = estimation.room_name;")
+        client.query("SELECT name, score, floor_plan FROM facility;")
+            // "select * from estimation where room_name = 'K501'  order by time DESC LIMIT 1;
             .then(res => {
                 var rooms = res.rows;
 
@@ -72,37 +72,42 @@ module.exports = function(app){//함수로 만들어 객체 app을 전달받음
 
     router.get('/:roomName', function(req, response) {
         var roomName = req.params.roomName;
+
         console.log(roomName);
         client.query("SELECT * FROM facility INNER JOIN environment ON (facility.name = environment.room_name)"
                 + " INNER JOIN  estimation ON (facility.name = estimation.room_name) WHERE facility.name = '"
                 + roomName + "';")
             .then(res => {
-                var info = res.rows[0];
+                var info = {
+                    room_info: res.rows[0],
+                    discomfort: '33',
+                };
                 info['roomName'] = roomName;
                 console.log(res.rows);
                 info['img'] = [
                     "glyphicons/glyphicons-22-snowflake.png", // air conditioner
-                    "glyphicons/glyphicons-564-person-wheelchair.png", // easy access
                     "glyphicons/glyphicons-266-electrical-plug.png", // plug
+                    "glyphicons/glyphicons-139-picture.png", // window
+                    "glyphicons/glyphicons-87-display.png", // screen
+                    "glyphicons/glyphicons-691-laptop.png", // computer
+                    "glyphicons/glyphicons-170-record.png", // projector
                     "glyphicons/glyphicons-74-wifi.png", // wifi
-                    "glyphicons/glyphicons-232-sun.png", // window
                     "glyphicons/glyphicons-214-arrow-up.png", // elevator
-                    "glyphicons/glyphicons-87-display.png", // computer
-                    "glyphicons/glyphicons-170-record.png" // projector
+
                 ];
                 info['fac_name'] =  [
                     "에어컨",
-                    "접근성 우수",
                     "플러그",
-                    "wifi",
                     "창문",
-                    "엘레베이터",
+                    "스크린",
                     "컴퓨터",
-                    "프로젝터"
+                    "프로젝터",
+                    "wifi",
+                    "엘레베이터"
                 ];
-                var temp = [], facility = info['facilities'];
+                var temp = [], facility = info['room_info']['facilities'];
                 var chunkSize = 2;
-                for (var i = 0; i < info['facilities'].length; i+= chunkSize){
+                for (var i = 0; i < facility.length; i+= chunkSize){
                     temp.push(facility.slice(i,i+chunkSize));
                 }
                 info['facilities'] = temp;
@@ -110,7 +115,8 @@ module.exports = function(app){//함수로 만들어 객체 app을 전달받음
 
                 const vueApp2 = new Vue({
                     components: {
-                        'li-facility-component': list_facilities_component.component
+                        'li-facility-component': list_facilities_component.component,
+                        'li-environment-component': list_facilities_component.env_component
                     },
                     data : info,
                     template: fs.readFileSync('./view/detail.template.html', 'utf-8')
