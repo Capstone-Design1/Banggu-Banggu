@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "K501",
+        "evaluation": 4.1,
+        "temperature": 25.4,
+        "humidity": 50,
+        "co2": 540,
+        "dust": 10
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              126.9405,
+              37.550122
+            ],
+            [
+              126.940529,
+              37.550028
+            ],
+            [
+              126.9403,
+              37.549978
+            ],
+            [
+              126.940269,
+              37.550072
+            ],
+            [
+              126.9405,
+              37.550122
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "f36c27f5ad717672347545fa16e48b8e"
+    }
+  ],
+  "type": "FeatureCollection"
+}

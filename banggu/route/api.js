@@ -20,6 +20,25 @@ module.exports = function(app) { //함수로 만들어 객체 app을 전달받�
             return res.status(500).json({success: false, data: err, client1: client});
         }
     });
+    router.get('/K/5', function (request, response) {
+        var k5jeojson = require("../../k5.json");
+
+        client.query("select * from facility fa inner join (select * from environment where room_name='K501' order by intime DESC limit 1) env on env.room_name = fa.name;")
+            .then(res => {
+                var info = res.rows[0];
+
+                k5jeojson.features[0].properties.evaluation = info.score;
+                k5jeojson.features[0].properties.temperature = info.temp;
+                k5jeojson.features[0].properties.humidity = info.humidity;
+                k5jeojson.features[0].properties.co2 = info.co2;
+                k5jeojson.features[0].properties.dust = info.dust;
+
+                console.log(info);
+                console.log(k5jeojson);
+                response.send(k5jeojson);
+            });
+    });
+
     router.get('/room/:roomName', function (request, response) {
         client.query("SELECT * FROM environment")
             .then(res => {
