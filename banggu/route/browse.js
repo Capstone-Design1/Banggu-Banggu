@@ -39,9 +39,12 @@ module.exports = function(app) { //함수로 만들어 객체 app을 전달받�
             return res.status(500).json({success: false, data: err, client1: client});
         }
     });
-    router.get('/', function (req, response) {
-        client.query("SELECT name, score, floor_plan FROM facility;")
-            // "select * from estimation where room_name = 'K501'  order by time DESC LIMIT 1;
+    router.get('/', function (request, response) {
+        var display_query = " where is_person_in = false ";
+        if ('display_all' in request.query == true && request.query['display_all'] == 'true')
+            display_query = '';
+
+        client.query("SELECT name, score, floor_plan FROM facility" + display_query + " order by score DESC;")
             .then(res => {
                 var rooms = res.rows;
 
@@ -75,9 +78,6 @@ module.exports = function(app) { //함수로 만들어 객체 app을 전달받�
 
         console.log(roomName);
         client.query("select * from facility fa inner join (select * from environment where room_name='" + roomName + "' order by intime DESC limit 1) env on env.room_name = fa.name;")
-            // query("SELECT * FROM facility INNER JOIN environment ON (facility.name = environment.room_name)"
-            //    + " INNER JOIN  estimation ON (facility.name = estimation.room_name) WHERE facility.name = '"
-            //    + roomName + "';")
             .then(res => {
                 var info = {
                     room_info: res.rows[0],
