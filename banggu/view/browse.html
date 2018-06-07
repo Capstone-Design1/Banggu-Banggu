@@ -175,22 +175,22 @@ const rooms = [
 {
     name: 'K501',
     score: '4.3',
-    img: '/banggu/image/room1.jpg'
+    img: '/view/image/K501.jpg'
 },
 {
     name: 'J104',
     score: '3.8',
-    img: '/banggu/image/room2.jpg'
+    img: '/view/image/J104.jpg'
 },
 {
     name: 'AS403',
     score: '2.1',
-    img: '/banggu/image/room3.jpg'
+    img: '/view/image/AS403.jpg'
 },
 {
     name: 'GN201',
     score: '1.5',
-    img: '/banggu/image/room4.jpg'
+    img: '/view/image/GN201.jpg'
 }
 ];
 
@@ -199,35 +199,37 @@ var browseRoomComponent = {
     <div class="w-100 p-3">
     <div class="panel panel-default"><a :href="'/banggu/browse/' + room.name">
         <div class="panel-body">
-        <img :src="room.img" alt="room1" class="img-responsive">
-            <div class="room-very-good" v-if="room.score >= 4">
-                <h1> {{room.name}}
-                <span class="badge alert-info">
-                    아주 좋아요!</span>
-                </h1>
-                <h4>환경점수: {{room.score}}/5</h4>
-            </div>
-            <div class="room-good" v-else-if="room.score >= 3" style="color-good">
-                <h1> {{room.name}}
-                <span class="badge alert-success">
-                    좋아요!</span>
-                </h1>
-                <h4>환경점수: {{room.score}}/5</h4>
-            </div>
-            <div class="room-soso" v-else-if="room.score >= 2">
-                <h1> {{room.name}}
-                <span class="badge alert-warning">
-                    그저 그래요!</span>
-                </h1>
-                <h4>환경점수: {{room.score}}/5</h4>
-            </div>
-            <div class="room-bad" v-else> 
-                <h1> {{room.name}}
-                <span class="badge alert-dange">
-                    방귀냄새!</span>
-                </h1>
-                <h4>환경점수: {{room.score}}/5</h4>
-            </div>
+            <div class="row">
+                <div class="col-xs-6"><img :src="room.img" alt="room1" class="img-responsive"></div>
+                <div class="col-xs-6">   
+                    <div class="room-very-good" v-if="room.score >= 4">
+                        <h1> {{room.name}}
+                        <span class="badge alert-info">
+                            아주 좋아요!</span>
+                        </h1>
+                        <h4>환경점수: {{room.score}}/5</h4>
+                    </div>
+                    <div class="room-good" v-else-if="room.score >= 3" style="color-good">
+                        <h1> {{room.name}}
+                        <span class="badge alert-success">
+                            좋아요!</span>
+                        </h1>
+                        <h4>환경점수: {{room.score}}/5</h4>
+                    </div>
+                    <div class="room-soso" v-else-if="room.score >= 2">
+                        <h1> {{room.name}}
+                        <span class="badge alert-warning">
+                            그저 그래요!</span>
+                        </h1>
+                        <h4>환경점수: {{room.score}}/5</h4>
+                    </div>
+                    <div class="room-bad" v-else> 
+                        <h1> {{room.name}}
+                        <span class="badge alert-dange">
+                            방귀냄새!</span>
+                        </h1>
+                        <h4>환경점수: {{room.score}}/5</h4>
+                    </div></div></div>
 <!--            <p><img src="/image/glyphicons/glyphicons-55-clock.png"/>
 16:23 까지 사용 가능 (1:23 남음)</p> -->
         </div>

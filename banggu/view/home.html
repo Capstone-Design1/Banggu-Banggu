@@ -7,15 +7,23 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            function a() {
+                alert("추후에 기능이 추가될 예정입니다!")
+            }
+        </script>
+        
         <style>
             body{
                 padding-top : 70px;
             }
-        </style>
+            img {
+                border-radius: 50%;
+            }        </style>
     </head>
 
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -24,135 +32,61 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/">방구방구</a>
+                  <a class="navbar-brand" href="/"><img src="/image/logo.png" width="45"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: #FFBD4A">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">홈 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="/browse">현재 사용가능한 강의실</a></li>
-                    <li>&nbsp;</li>
-                    <li><a href="#">추천 강의실</a></li>
-                    <li><a href="#">강의실 인기 순위</a></li>
+                      <li><a href="/"><font color="#485E6B">홈</font><span class="sr-only">(current)</span></a></li>
+                      <li><a href="/browse"><font color="white">현재 사용가능한 강의실</font></a></li>
+                      <li><a href="#"><font color="white">-</font></a></li>
+                      <li><a onClick="a();" style="cursor: pointer; cursor: hand;"><font color="white">추천 강의실</font></a></li>
+                      <li><a onClick="a();" style="cursor: pointer; cursor: hand;"><font color="white">강의실 인기 순위</font></a></li>
+                      <li><a href="#"><font color="white">-</font></a></li>
+                      <li><a href="/about"><font color="white">방구방구?</font></a></li>
                   </ul>
-                  <form class="navbar-form navbar-right">
+                    
+<!--                  <form class="navbar-form navbar-right">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-default">검색</button>
-                    </form>
+                    </form>-->
                 </div><!-- /.navbar-collapse -->
             </div>
-        </nav>        
+        </nav>   
         
-        <section>
-        <div class="col-md-12"><h2>무엇을 위해 강의실을 찾으시나요?</h2></div>
-            <div id="purposeCarousel" class="carousel slide" data-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#purposeCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#purposeCarousel" data-slide-to="1"></li>
-                <li data-target="#purposeCarousel" data-slide-to="2"></li>
-              </ol>
+    <div class="jumbotron" style="background-color: #FFBD4A">
+      <div class="container">
+          <h1 class="display-3"><span style="font-weight:bold">지금 빈 강의실이<br/>필요하신가요?</span></h1>
+        <p></p><br/>
+          <p ><a class="btn btn-default btn-lg" href="/browse" role="button" style="border-color: #485E6B"><font color="#485E6B">지금 빈 강의실 보러가기 &raquo;</font></a></p>
+      </div>
+    </div>
 
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <div class="item active">
-                  <img src="/image/study.jpg" alt="study">
-                  <div class="carousel-caption">
-                    <h3>공부</h3>
-                    <p>공부하기 쾌적한 강의실을 알려드려요!</p>
-                  </div>
-                </div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-xs-4" align="center">
+            <a onClick="a();"><img src="/image/all.png" alt="all" width="100">
+            <h5><span style="font-weight:bold">모든 강의실 보기</span></h5></a>
+        </div>
+        <div class="col-xs-4" align="center">
+            <a href="/browse"><img src="/image/empty.png" alt="all" width="100">
+            <h5><span style="font-weight:bold">지금 비어있는<br/>강의실 보기</span></h5></a>
+       </div>
+        <div class="col-xs-4" align="center">
+            <a onClick="a();"><img src="/image/building.png" alt="all" width="100">
+            <h5><span style="font-weight:bold">건물 별<br/>강의실 보기</span></h5></a>
+        </div>
+      </div>
 
-                <div class="item">
-                  <img src="/image/presentation.jpg" alt="presentation">
-                  <div class="carousel-caption">
-                    <h3>발표</h3>
-                    <p>발표하기 좋은 강의실을 찾아드려요!</p>
-                  </div>
-                </div>
+      <hr>
 
-                <div class="item">
-                  <img src="/image/class.jpg" alt="Class">
-                  <div class="carousel-caption">
-                    <h3>수업 / 워크숍</h3>
-                    <p>워크숍에 적합한 강의실을 추천해드려요!</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Left and right controls -->
-              <a class="left carousel-control" href="#purposeCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#purposeCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-        </section><br/><br/>
-
-        <section>
-            <div class="col-md-12"><h2>이달의 강의실</h2></div>
-                <div class="w-100 p-3">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <img src="/image/GN201.jpg" alt="room5" class="img-responsive">
-                    <div class="caption">
-                        <h3>J301</h3>
-                        <p>200석 규모, 3개 국어 동시통역 가능 시설까지 갖추어져 있어 컨퍼런스를 진행하기 용이합니다</p>
-                        <p><a href="/detail.html" class="btn btn-primary" role="button">더 알아보기</a></p>
-                    </div>
-                </div></div>
-        </section><br/><br/>
-
-        <section>
-        <div class="col-md-12"><h2>추천 강의실</h2></div>
-            <div id="recoCarousel" class="carousel slide" data-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#recoCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#recoCarousel" data-slide-to="1"></li>
-                <li data-target="#recoCarousel" data-slide-to="2"></li>
-              </ol>
-
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <div class="item active">
-                  <img src="/image/K501.jpg" alt="room1">
-                  <div class="carousel-caption">
-                    <h3>K501</h3>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <img src="/image/J104.jpg" alt="room2">
-                  <div class="carousel-caption">
-                    <h3>J319</h3>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <img src="/image/AS403.jpg" alt="room3">
-                  <div class="carousel-caption">
-                    <h3>J103</h3>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Left and right controls -->
-              <a class="left carousel-control" href="#recoCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#recoCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>            
-        </section>
+      <footer>
+        <p>&copy; 서강대학교 캡스톤디자인 2조 방구방구, 2018</p>
+      </footer>
+    </div> <!-- /container -->
     </body>
 </html>
