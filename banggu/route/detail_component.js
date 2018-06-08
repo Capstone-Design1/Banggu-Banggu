@@ -70,7 +70,7 @@ var listEnvironmentComponent = {
                     </tr>
                 </thead>
             </table>
-        </table>        
+        </table>
     `,
     props: {
         room_env: Object
@@ -80,28 +80,6 @@ var listEnvironmentComponent = {
 exports.browseRoomComponent = listEnvironmentComponent;
 
 var listFacilitiesComponent = {
-    data () {
-        img = [
-            "glyphicons/glyphicons-22-snowflake.png", // air conditioner
-            "glyphicons/glyphicons-266-electrical-plug.png", // plug
-            "glyphicons/glyphicons-232-sun.png", // window
-            "glyphicons/glyphicons-139-picture", // screen
-            "glyphicons/glyphicons-691-laptop", // computer
-            "glyphicons/glyphicons-170-record.png", // projector
-            "glyphicons/glyphicons-74-wifi.png", // wifi
-            "glyphicons/glyphicons-214-arrow-up.png", // elevator
-        ],
-        fac_name =  [
-            "에어컨",
-            "플러그",
-            "창문",
-            "스크린",
-            "컴퓨터",
-            "프로젝터",
-            "wifi",
-            "엘레베이터"
-        ]
-    },
     template: `
         <table class="table-responsive">
         <table class="table">

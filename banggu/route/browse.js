@@ -85,25 +85,24 @@ module.exports = function(app) { //함수로 만들어 객체 app을 전달받�
                 info['roomName'] = roomName;
                 console.log(res.rows);
                 info['img'] = [
-                    "glyphicons/glyphicons-22-snowflake.png", // air conditioner
                     "glyphicons/glyphicons-266-electrical-plug.png", // plug
                     "glyphicons/glyphicons-139-picture.png", // window
-                    "glyphicons/glyphicons-87-display.png", // screen
-                    "glyphicons/glyphicons-691-laptop.png", // computer
+                    "glyphicons/table.png",//sepTable
+                    "glyphicons/glyphicons-22-snowflake.png", // air conditioner
                     "glyphicons/glyphicons-170-record.png", // projector
+                    "glyphicons/glyphicons-691-laptop.png", // computer
+                    "glyphicons/board.png", //wBoard
                     "glyphicons/glyphicons-74-wifi.png", // wifi
-                    "glyphicons/glyphicons-214-arrow-up.png", // elevator
-
                 ];
                 info['fac_name'] =  [
-                    "에어컨",
                     "플러그",
                     "창문",
-                    "스크린",
-                    "컴퓨터",
+                    "분리형 책상",
+                    "개별 에어컨",
                     "프로젝터",
-                    "wifi",
-                    "엘레베이터"
+                    "컴퓨터",
+                    "화이트 보드",
+                    "wifi"
                 ];
                 var temp = [], facility = info['room_info']['facilities'];
                 var chunkSize = 2;
