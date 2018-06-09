@@ -1,4 +1,4 @@
-# sogang-space
+# Banggu-Banggu
 ## Information
 URL : ec2-13-209-35-182.ap-northeast-2.compute.amazonaws.com
 
